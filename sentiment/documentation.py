@@ -136,10 +136,10 @@ Alternate CSV: add `--data path/to/file.csv`; it must have one positive/negative
 
 - A black cinema interface with restrained purple/blue accents, local Manrope typography, editorial serif accents, and horizontal navigation.
 - A cinema hero with a Write a review shortcut, review editor, ivory admit-one prediction ticket, and clickable positive, negative and mixed review excerpts. Character count, clear action and Ctrl+Enter submission are supported.
-- Accessible result and error messages; handles blank input, excessive length, text without learned vocabulary and server errors.
+- Results display **Positive Review** or **Negative Review**, with a short quoted excerpt and a color-accented ticket. Accessible result and error messages; handles blank input, excessive length, text without learned vocabulary and server errors.
 - Evaluation view with a flat row of actual metrics, a dark confusion matrix populated from saved results, expandable presentation PNG, full per-class scores and downloadable JSON/PNG results.
 - Dataset audit and methodology view with class counts, train/test counts, parameters and preprocessing explanation.
-- Responsive desktop/mobile layout, visible keyboard focus, subtle hero and hover animations, and ticket-stamp prediction feedback. Animations respect prefers-reduced-motion; results are automatically brought into view after mobile predictions.
+- Responsive desktop/mobile layout, visible keyboard focus, staggered scroll entrances, pointer-responsive hero artwork, button light sweeps, card hover effects, and a staged ticket-stamp result reveal. Animations respect prefers-reduced-motion; results are automatically brought into view after mobile predictions.
 - Artwork and fonts are local, so no third-party asset requests occur at runtime. See [asset prompts and font license](static/assets/ARTWORK.md).
 - Reviews are sent only to the local server and are not stored by the application.
 

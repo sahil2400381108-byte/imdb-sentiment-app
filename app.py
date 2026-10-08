@@ -66,7 +66,7 @@ def predict(payload: ReviewInput):
     if vector.nnz == 0:
         raise HTTPException(422, "No familiar vocabulary found. Try a longer English movie review.")
     prediction = str(app.state.model.predict([payload.review])[0])
-    return {"sentiment": prediction, "label": f"{prediction.title()} Sentiment", "note": "Predicted class only. This model does not provide a calibrated probability."}
+    return {"sentiment": prediction, "label": f"{prediction.title()} Review", "note": "Predicted class only. This model does not provide a calibrated probability."}
 
 
 @app.get("/api/download/{name}")

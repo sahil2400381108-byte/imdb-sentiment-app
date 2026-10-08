@@ -11,6 +11,7 @@
   <link rel="preload" as="font" href="/static/assets/manrope-variable-latin.woff2" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/static/styles.css">
   <script src="/static/app.js" defer></script>
+  <script src="/static/motion.js" defer></script>
 </head>
 <body>
 <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -45,34 +46,34 @@
   <div id="load-error" class="error-banner" role="alert" hidden><span>Could not load the experiment.</span><button id="retry" class="text-button">Try again</button></div>
   <section id="analyze" class="view">
     <section class="cinema-hero" aria-labelledby="hero-title">
-      <img class="hero-art" src="/static/assets/cinema-neon.png" alt="Original cinema artwork with popcorn, a film reel and a clapperboard lit in purple and blue" fetchpriority="high">
+      <div class="hero-art-plane"><img class="hero-art" src="/static/assets/cinema-neon.png" alt="Original cinema artwork with popcorn, a film reel and a clapperboard lit in purple and blue" fetchpriority="high"></div>
       <div class="hero-shade"></div>
       <div class="hero-content">
         <div class="eyebrow"><span class="accent-line"></span> A PLACE FOR MOVIE OPINIONS</div>
         <h1 id="hero-title">Worth the<br><em>watch?</em></h1>
-        <p>The good, the bad, the “what did I just watch?”<br>Write your honest take. Find the sentiment in it.</p>
+        <p>The good, the bad, the “what did I just watch?”<br> Write your honest take. Find the sentiment in it.</p>
         <div class="hero-actions"><button id="write-review-button" class="primary">Write a review<svg><use href="#arrow"/></svg></button><a href="#evaluation" class="hero-link">See model results <span>&#8599;</span></a></div>
         <div class="hero-footnote"><span>POWERED BY</span> TF-IDF <span class="separator">/</span> Linear SVM</div>
       </div>
       <div class="frame-label"><span class="frame-mark"></span>LIGHTS. CAMERA. YOUR TAKE.</div>
     </section>
 
-    <div class="section-heading workspace-heading" id="review-workspace"><div><h2>The review room<span class="heading-period">.</span></h2></div><span class="section-aside">No star ratings. Just your words.</span></div>
+    <div class="section-heading workspace-heading" id="review-workspace"><div><h2>The review room<span class="heading-period">.</span></h2></div><span class="section-aside">Your words. A clear verdict.</span></div>
     <div class="analyzer-grid">
       <section class="card input-card" aria-labelledby="review-heading">
-        <div class="card-heading"><div class="heading-with-icon"><span class="square-icon"><svg><use href="#pen"/></svg></span><div><h2 id="review-heading">Your movie review</h2><p class="card-subtitle">Give us your unfiltered opinion.</p></div></div><span class="small-tag">English</span></div>
+        <div class="card-heading"><div class="heading-with-icon"><span class="square-icon"><svg><use href="#pen"/></svg></span><div><h2 id="review-heading">Your movie review</h2><p class="card-subtitle">A great film or a missed opportunity? Your take.</p></div></div><span class="small-tag">English</span></div>
         <form id="review-form" novalidate>
           <label class="sr-only" for="review">Your movie review</label>
           <textarea id="review" name="review" maxlength="20000" placeholder="I went in with low expectations, but the story completely won me over…" aria-describedby="input-hint input-error"></textarea>
           <div class="input-meta"><span id="input-hint">A few sentences work best.</span><span id="count">0 / 20,000</span></div>
           <p id="input-error" class="input-error" role="alert" hidden></p>
-          <div class="form-actions"><button type="submit" id="analyze-button" class="primary" disabled><span>Analyze sentiment</span><svg><use href="#arrow"/></svg></button><button type="button" id="clear" class="text-button">Clear</button><span class="keyboard-hint"><kbd>Ctrl</kbd> + <kbd>&#8629;</kbd></span></div>
+          <div class="form-actions"><button type="submit" id="analyze-button" class="primary" disabled><span>Analyze review</span><svg><use href="#arrow"/></svg></button><button type="button" id="clear" class="text-button">Clear</button><span class="keyboard-hint"><kbd>Ctrl</kbd> + <kbd>&#8629;</kbd></span></div>
         </form>
-        <div class="privacy-note"><svg><use href="#shield"/></svg>Processed locally. Your review isn’t saved.</div>
+        <div class="privacy-note"><svg><use href="#shield"/></svg>Your review is analyzed here and isn’t saved.</div>
       </section>
       <section class="card result-card" aria-labelledby="result-heading">
         <div class="ticket-heading"><span class="step-label">SENTIMENTLAB / ADMIT ONE</span><svg><use href="#film"/></svg></div><h2 id="result-heading">The verdict.</h2>
-        <div id="prediction" class="prediction" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"><div class="result-icon"><svg><use href="#review-note"/></svg></div><h3>Ready when you are</h3><p>Your prediction will appear here<br>once you analyze a review.</p><span class="result-placeholder">POSITIVE <span>or</span> NEGATIVE</span></div>
+        <div id="prediction" class="prediction" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"><div class="result-icon"><svg><use href="#review-note"/></svg></div><h3>Ready when you are</h3><p>Your review’s verdict will appear here<br>when you’re ready.</p><span class="result-placeholder">POSITIVE <span>or</span> NEGATIVE</span></div>
         <div class="ticket-tear"><span></span><span></span></div>
         <div class="result-note"><span class="ticket-code" aria-hidden="true">SL / 001</span><p>A class prediction, not a probability.<br>Nuance can still be missed.</p><div class="barcode" aria-hidden="true"></div></div>
       </section>

@@ -102,6 +102,7 @@ def test_predictions_from_loaded_artifact(client, model, review, expected):
     response = client.post("/api/predict", json={"review": review})
     assert response.status_code == 200
     assert response.json()["sentiment"] == expected == model.predict([review])[0]
+    assert response.json()["label"] == f"{expected.title()} Review"
     assert "probability" not in response.json()
 
 

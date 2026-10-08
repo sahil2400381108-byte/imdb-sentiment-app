@@ -36,6 +36,7 @@
       "active navigation and direct links",
       "unknown route fallback",
       "mobile navigation, overflow and prediction",
+      "mobile verdict automatically visible",
       "normal animation and reduced-motion support"
     ]
   },
@@ -86,18 +87,25 @@
     "Browser automation used Chromium; other browsers were not tested."
   ],
   "frontend_refresh": {
-    "checked_at_utc": "2026-10-08T01:03:40.281516+00:00",
-    "scope": "Frontend appearance and interactions; model and evaluation artifacts unchanged",
-    "artwork": "static/assets/cinema-neon.png",
-    "font": "static/assets/manrope-variable-latin.woff2",
-    "all_browser_checks_passed": true,
+    "checked_at_utc": "2026-10-08T14:12:02.910920+00:00",
+    "scope": "Cinematic UI refinement and Positive Review / Negative Review result labels",
+    "layout": "Popcorn hero, editor/result columns, examples and evaluation retained",
+    "verified": [
+      "17 Python tests passed",
+      "Browser checks passed at 1440, 768, 390 and 360px",
+      "Both review labels and quoted excerpt display correctly",
+      "Mobile verdict visible after prediction",
+      "Reduced-motion support"
+    ],
     "javascript_errors": [],
-    "layout": "Existing hero, editor/result columns, examples, performance and methodology preserved",
-    "motion": "Brief entrance, hover and result feedback with reduced-motion support",
-    "fixes_verified": [
-      "Explicit row and column placement for all four confusion-matrix cells",
-      "Correct variable Manrope font weights",
-      "Film reel logo rendering"
+    "all_browser_checks_passed": true,
+    "animation_checked_at_utc": "2026-10-08T14:19:57.051916+00:00",
+    "motion": "One-time scroll entrances, cursor-driven artwork, button sheen, card lift, loading ring and staged review-result reveal.",
+    "motion_checks": [
+      "Normal-motion desktop and mobile predictions work",
+      "Reduced-motion changes cancel active JavaScript animations and reset artwork",
+      "Result animations complete with content visible",
+      "No JavaScript errors"
     ]
   }
 }

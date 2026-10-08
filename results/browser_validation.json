@@ -26,6 +26,7 @@
     "active navigation and direct links",
     "unknown route fallback",
     "mobile navigation, overflow and prediction",
+    "mobile verdict automatically visible",
     "normal animation and reduced-motion support"
   ]
 }

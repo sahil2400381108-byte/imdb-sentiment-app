@@ -98,7 +98,8 @@ function resetResult() {
   if (controller) controller.abort();
   controller = null;
   button.disabled = !ready;
-  $("#analyze-button span").textContent = "Analyze sentiment";
+  $("#analyze-button span").textContent = "Analyze review";
+  $(".result-card").removeAttribute("data-review-tone");
   $("#prediction").className = "prediction";
   $("#prediction").innerHTML = emptyResult;
   $("#input-error").hidden = true;
@@ -146,9 +147,12 @@ $("#review-form").addEventListener("submit", async (event) => {
     if (!response.ok) throw new Error(typeof result.detail === "string" ? result.detail : "Please enter a review between 1 and 20,000 characters.");
     const positive = result.sentiment === "positive";
     $("#prediction").className = `prediction ${positive ? "positive" : "negative"}`;
-    $("#prediction").innerHTML = `<div class="result-icon"><svg><use href="#${positive ? "positive-face" : "negative-face"}"/></svg></div><h3></h3><p></p><span class="result-placeholder">TF-IDF + Linear SVM</span>`;
-    $("#prediction h3").textContent = result.label;
-    $("#prediction p").textContent = positive ? "The model reads your review as positive." : "The model reads your review as negative.";
+    $(".result-card").dataset.reviewTone = positive ? "positive" : "negative";
+    $("#prediction").innerHTML = `<div class="result-icon"><svg aria-hidden="true"><use href="#${positive ? "positive-face" : "negative-face"}"/></svg></div><span class="review-verdict-kicker">REVIEW ANALYZED</span><h3></h3><p></p><blockquote class="review-excerpt"></blockquote>`;
+    $("#prediction h3").textContent = positive ? "Positive Review" : "Negative Review";
+    $("#prediction p").textContent = positive ? "Your review expresses a favorable opinion of the movie." : "Your review expresses an unfavorable opinion of the movie.";
+    const excerpt = review.value.trim().replace(/\s+/g, " ");
+    $(".review-excerpt").textContent = `“${excerpt.length > 155 ? excerpt.slice(0, 152) + "…" : excerpt}”`;
     // The result sits below the editor on phones; bring it into view after success.
     if (window.matchMedia("(max-width: 650px)").matches) {
       const verdict = $(".result-card");
@@ -164,7 +168,7 @@ $("#review-form").addEventListener("submit", async (event) => {
     showError(error.name === "AbortError" ? "The request timed out. Please try again." : error.message === "Failed to fetch" ? "Cannot reach the local server. Check the connection and try again." : error.message);
   } finally {
     clearTimeout(timeout);
-    if (id === requestId) {button.disabled = !ready; controller = null; $("#analyze-button span").textContent = "Analyze sentiment";}
+    if (id === requestId) {button.disabled = !ready; controller = null; $("#analyze-button span").textContent = "Analyze review";}
   }
 });
 loadExperiment();
