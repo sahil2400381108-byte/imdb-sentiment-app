@@ -1,0 +1,59 @@
+{
+  "filename": "IMDB_Sampled_Balanced.csv",
+  "sha256": "8021f2d7f9954929f3d5e24263243e60f8571d7c2cb521460eb7f67630049178",
+  "columns": [
+    "review",
+    "sentiment"
+  ],
+  "shape": [
+    2000,
+    2
+  ],
+  "original_records": 2000,
+  "dtypes": {
+    "review": "object",
+    "sentiment": "object"
+  },
+  "missing_values": {
+    "review": 0,
+    "sentiment": 0
+  },
+  "duplicate_rows": 0,
+  "duplicate_review_texts": 0,
+  "original_class_distribution": {
+    "negative": 1000,
+    "positive": 1000
+  },
+  "first_rows": [
+    {
+      "review": "This was the first sequel I'd seen (apart from Return of Jafar) and I honestly thought before watching it that it would be close to the original. I was horribly disappointed.<br /><br />The storyline was, basically, the first script with a few extra characters and the situation turned around. Ariel and Eric have a daughter, Melody who isn't satisfied with life on land. She wants to become a mermaid. However, Ariel has kept her past from her daughter because she wants to protect her-and when Melody finds out she's upset and angry. And she then decides to run away, and she becomes a mermaid. So she's happy swimming around, and Ariel sets out to find her-as a mermaid.<br /><br />The story doesn't sound too bad written down, but the clichés and repeats of situations from the first movie are just too obvious. And adding the fact that Melody is, overall, extremely annoying, and the movie becomes almost unbearable.<br /><br />There's also a whole load of other new characters-Tip and Dash being two of them. They aren't too bad as characters in themselves-just try not to think of Timon or Pumbaa! The songs leave a lot to be desired too, they just don't have the same magical energy as the songs from the original did. The animation obviously didn't have a whole load of work put into it either-in parts it's jumpy, and not much imagination is used for the characters movements.<br /><br />Another piece of advice-try to forget about Ariel's original character while watching this movie. The beautiful, rebellious, curious teenager has 'all grown up' into a bland, boring wife and mother, and her trademark red hair is all tied up. This is much better viewed if you've never seen the original-you'll have nothing to compare it to.<br /><br />However, all in all, it could have been worse-it's not as bad as certain other sequels, such as Cinderella II. But it's not in the same league as the original. But it for your collection if nothing else but if Disney go on like this they'll lose all their older fans.",
+      "sentiment": "negative"
+    },
+    {
+      "review": "This movie is probably for you. It had an overall meditative quality from the music, to the beautiful photography, and listening to the often cliché things about life that Andy Goldsworthy would say as he worked or in between shots. If you're familiar with Buddhism- that is the sort of the sense I got out of this film. The impermanence of life, the beauty of nature, the interconnectedness of all things, etc. However, what I did not understand, confused, and ultimately forced me to leave without finishing (I saw over an hour of it) was the redundancy of the whole thing. You only find out bits and pieces of why he's commissioned, and how he can even afford to live off of this kind of work. The art work comes alive but all his talking with no conclusions leads to dead ends.",
+      "sentiment": "positive"
+    },
+    {
+      "review": "...and you can look at that statement in different ways, by the way. First of all, it's a mess because of all the gruesome and extremely violent scenes. Your wildest imagination doesn't even come close to some of the explicitly shown scenes here. Entire parts of this movie are just plain sick, disgusting, offensive, brutal and they bring you close to puking your guts out. Now, I love horror movies and I am very 'pro-violence', but I do think that it has to lead somewhere !! Is that too much to ask ? Cradle of Fear is just a series of utterly sick and twisted thoughts. The \"movie\" contains out of four separate chapters connected by a wraparound story. This results in endless showing of torture, murder and sickness only to find out that the victims have something in common. Not very informative, if you ask me. And yet - it has to be said - the basic plot idea surely HAS potential. It's about a cannibalistic hypnotist who made a deal with the devil himself to avenge himself and cause misery and death to everyone who was involved in his trial. Personally, I think that is an interesting topic, so they should have focused on that a little more instead of wanting to create the most disgusting movie ever.<br /><br />Secondly, the whole production of this movie was a mess. They didn't have much of a budget and they spent it all on fake blood and guts...Tons of it !! The acting performances are a joke and some of the worst I've ever seen. Any other special effects besides the make-up looks very amateurish ( Like that attempt to a realistic car crash, for example ). There's no tension or atmosphere to detect anywhere...not even an attempt to build up one.<br /><br />Cradle of Fear is a failure and a missed opportunity to say the least. With the presence of death-metal icon Danni Filth ( from the band Cradle of filth..get the link ? ) this movie is obviously only meant for the eyes of twisted teenagers who try to be controversial. Troubled girls and boys who take pleasure in worrying their parents by watching crap like this. And then people keep complaining that the amount of suicides and juvenile delinquency is increasing...Bah. I can imagine that this movie can cause a lot of damage when you're easily influenced or dispose of an unstable mind. For every self-respecting horror fan, this movie is an insult.",
+      "sentiment": "negative"
+    },
+    {
+      "review": "As a Long Island independent film maker myself, and having have had two theatrical releases under my producing/directing belt I had always been told of how much I could learn by viewing a FRED CARPENTER production so I was lucky enough to have his \"Eddie Monroe\" as my initiation to his superb budgeting, production, casting, settings and masterful directing talents. My heart went out to it's characters, it's story and was totally won over by the trick/switch ending that brought the film's plot to fruition! Location's were marvelously chosen and human emotions in it's characters brought a realistic link to my bonding with all the elements that Mr Carpenter utilized throughout, to his and his film's benefit!",
+      "sentiment": "positive"
+    },
+    {
+      "review": "This movie starts out very VERY slow, but when the action finally gets started, it's a little had to follow. I couldn't understand why some of the events were taking place, and a lot of events happened before they were explained, making them sort of confusing. The only thing it really has going for it is the massive amount of blood/gore it has, although most times the special effects are lacking. Blood looks like red Kool-Aid. Skin tearing sounds like somebody is stepping on a pile of sticks. Again, the story has a sort of amateur feel to it, like the writer didn't take a long time to perfect it. I feel like it could be a much better movie if the effects were done better and more time was taken on the script. I honestly wish I hadn't watched it, not because of the gore, but because I feel that i wasted 90 minutes of my life. If you like extremely gory movies, this is for you, if not, stay away.",
+      "sentiment": "negative"
+    }
+  ],
+  "review_column": "review",
+  "label_column": "sentiment",
+  "normalized_duplicates_same_label": 0,
+  "removed_rows": [],
+  "removed_count": 0,
+  "final_records": 2000,
+  "class_distribution": {
+    "negative": 1000,
+    "positive": 1000
+  }
+}

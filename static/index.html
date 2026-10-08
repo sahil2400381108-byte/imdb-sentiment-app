@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0e">
+  <meta name="description" content="For every film, a point of view. Explore the sentiment in your movie reviews with IMDb Sentiment Lab.">
+  <title>SentimentLab &mdash; The Review Room</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="/static/assets/cinema-neon.png">
+  <link rel="preload" as="font" href="/static/assets/manrope-variable-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="film" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4M7 12h10"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></symbol>
+  <symbol id="chart" viewBox="0 0 24 24"><path d="M4 3v17h17M9 15V9M14 15V5M19 15v-4"/></symbol>
+  <symbol id="layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8l10-5Zm-10 9 10 5 10-5M2 16l10 5 10-5"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="positive-face" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c2 3 6 3 8 0M8 9h.01M16 9h.01"/></symbol>
+  <symbol id="negative-face" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 17c2-3 6-3 8 0M8 9h.01M16 9h.01"/></symbol>
+  <symbol id="mixed-face" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 15h8M8 9h.01M16 9h.01"/></symbol>
+  <symbol id="review-note" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 8h8M8 12h8M8 16h4"/></symbol>
+  <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+<symbol id="pen" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-5-5L4 14v6ZM13 20h8"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7V5Z"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-5"/></symbol><symbol id="reel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="6" r="2"/><circle cx="6.3" cy="10.1" r="2"/><circle cx="8.5" cy="16.8" r="2"/><circle cx="15.5" cy="16.8" r="2"/><circle cx="17.7" cy="10.1" r="2"/><circle cx="12" cy="12" r=".8"/></symbol></defs></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#analyze" class="brand" aria-label="SentimentLab home"><img class="brand-reel" src="/static/favicon.svg" width="38" height="38" alt=""><span>Sentiment<span class="brand-light">Lab</span><small>FOR THE LOVE OF FILM</small></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#analyze" data-nav="analyze" class="active">Review room</a>
+      <a href="#evaluation" data-nav="evaluation">Model performance</a>
+      <a href="#method" data-nav="method">Behind the model</a>
+    </nav>
+    <span id="model-status" class="status"><span class="dot"></span>Loading model</span>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+  <div class="breadcrumb-bar"><span>IMDb Movie Review Sentiment Analysis</span><span id="breadcrumb">Review room</span></div>
+  <div id="load-error" class="error-banner" role="alert" hidden><span>Could not load the experiment.</span><button id="retry" class="text-button">Try again</button></div>
+  <section id="analyze" class="view">
+    <section class="cinema-hero" aria-labelledby="hero-title">
+      <img class="hero-art" src="/static/assets/cinema-neon.png" alt="Original cinema artwork with popcorn, a film reel and a clapperboard lit in purple and blue" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="accent-line"></span> A PLACE FOR MOVIE OPINIONS</div>
+        <h1 id="hero-title">Worth the<br><em>watch?</em></h1>
+        <p>The good, the bad, the “what did I just watch?”<br>Write your honest take. Find the sentiment in it.</p>
+        <div class="hero-actions"><button id="write-review-button" class="primary">Write a review<svg><use href="#arrow"/></svg></button><a href="#evaluation" class="hero-link">See model results <span>&#8599;</span></a></div>
+        <div class="hero-footnote"><span>POWERED BY</span> TF-IDF <span class="separator">/</span> Linear SVM</div>
+      </div>
+      <div class="frame-label"><span class="frame-mark"></span>LIGHTS. CAMERA. YOUR TAKE.</div>
+    </section>
+
+    <div class="section-heading workspace-heading" id="review-workspace"><div><h2>The review room<span class="heading-period">.</span></h2></div><span class="section-aside">No star ratings. Just your words.</span></div>
+    <div class="analyzer-grid">
+      <section class="card input-card" aria-labelledby="review-heading">
+        <div class="card-heading"><div class="heading-with-icon"><span class="square-icon"><svg><use href="#pen"/></svg></span><div><h2 id="review-heading">Your movie review</h2><p class="card-subtitle">Give us your unfiltered opinion.</p></div></div><span class="small-tag">English</span></div>
+        <form id="review-form" novalidate>
+          <label class="sr-only" for="review">Your movie review</label>
+          <textarea id="review" name="review" maxlength="20000" placeholder="I went in with low expectations, but the story completely won me over…" aria-describedby="input-hint input-error"></textarea>
+          <div class="input-meta"><span id="input-hint">A few sentences work best.</span><span id="count">0 / 20,000</span></div>
+          <p id="input-error" class="input-error" role="alert" hidden></p>
+          <div class="form-actions"><button type="submit" id="analyze-button" class="primary" disabled><span>Analyze sentiment</span><svg><use href="#arrow"/></svg></button><button type="button" id="clear" class="text-button">Clear</button><span class="keyboard-hint"><kbd>Ctrl</kbd> + <kbd>&#8629;</kbd></span></div>
+        </form>
+        <div class="privacy-note"><svg><use href="#shield"/></svg>Processed locally. Your review isn’t saved.</div>
+      </section>
+      <section class="card result-card" aria-labelledby="result-heading">
+        <div class="ticket-heading"><span class="step-label">SENTIMENTLAB / ADMIT ONE</span><svg><use href="#film"/></svg></div><h2 id="result-heading">The verdict.</h2>
+        <div id="prediction" class="prediction" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"><div class="result-icon"><svg><use href="#review-note"/></svg></div><h3>Ready when you are</h3><p>Your prediction will appear here<br>once you analyze a review.</p><span class="result-placeholder">POSITIVE <span>or</span> NEGATIVE</span></div>
+        <div class="ticket-tear"><span></span><span></span></div>
+        <div class="result-note"><span class="ticket-code" aria-hidden="true">SL / 001</span><p>A class prediction, not a probability.<br>Nuance can still be missed.</p><div class="barcode" aria-hidden="true"></div></div>
+      </section>
+    </div>
+
+    <section class="sample-section" aria-labelledby="sample-heading">
+      <div class="section-heading"><div><h2 id="sample-heading">Try a sample</h2></div><span class="section-aside">Pick one to fill the review box</span></div>
+      <div class="sample-grid">
+        <button type="button" class="sample-card sample-positive" data-example="positive"><span class="sample-top"><span class="sample-category"><svg><use href="#positive-face"/></svg>Loved it</span><svg><use href="#arrow"/></svg></span><span class="sample-quote">“This movie was fantastic. The acting and story were excellent.”</span><span class="sample-bottom">Positive example<span>Use review ↗</span></span></button>
+        <button type="button" class="sample-card sample-negative" data-example="negative"><span class="sample-top"><span class="sample-category"><svg><use href="#negative-face"/></svg>Not for me</span><svg><use href="#arrow"/></svg></span><span class="sample-quote">“This movie was extremely boring and I regret watching it.”</span><span class="sample-bottom">Negative example<span>Use review ↗</span></span></button>
+        <button type="button" class="sample-card sample-mixed" data-example="mixed"><span class="sample-top"><span class="sample-category"><svg><use href="#mixed-face"/></svg>Mixed feelings</span><svg><use href="#arrow"/></svg></span><span class="sample-quote">“The cast is talented, yet the story is dull and never gives them anything interesting to do.”</span><span class="sample-bottom">Mixed example<span>Use review ↗</span></span></button>
+      </div>
+    </section>
+
+    <section class="performance-preview"><div class="section-heading"><div><h2>How the model performs</h2><p id="holdout-summary">Loading held-out evaluation…</p></div><a href="#evaluation" class="inline-link">View evaluation<svg><use href="#arrow"/></svg></a></div><div class="metric-grid" id="preview-metrics"></div></section>
+    <section class="how-it-works"><div><h2>How it works</h2></div><ol class="flow"><li><span>01</span>Review</li><li><span>02</span>Clean text</li><li><span>03</span>TF-IDF</li><li><span>04</span>Linear SVM</li><li><span>05</span>Sentiment</li></ol></section>
+  </section>
+    <section id="evaluation" class="view" hidden>
+      <div class="page-heading"><div><div class="eyebrow">THE EXPERIMENT</div><h1>Model performance<span class="heading-period">.</span></h1><p>Results from reviews the model never saw during training.</p></div><a href="/api/download/metrics.json" class="secondary" download><svg><use href="#download"/></svg>Export results</a></div>
+      <div class="evaluation-note"><span class="dot"></span><span id="evaluation-summary">Loading experiment…</span></div>
+      <div class="metric-grid" id="evaluation-metrics"></div>
+      <div class="evaluation-grid"><section class="card matrix-card"><div class="section-heading"><div><span class="step-label">PREDICTIONS VS. REALITY</span><h2>Where the model gets it right</h2></div><a class="icon-button" href="/api/download/confusion_matrix.png" download aria-label="Download confusion matrix"><svg><use href="#download"/></svg></a></div><div id="live-matrix" class="live-matrix" role="img" aria-label="Loading confusion matrix">
+  <div class="matrix-axis">PREDICTED SENTIMENT</div><div class="matrix-label col-negative">Negative</div><div class="matrix-label col-positive">Positive</div>
+  <div class="matrix-label row-negative">Actual<br>Negative</div><div class="matrix-cell correct"><strong data-matrix-cell="tn">&mdash;</strong><span>TRUE NEGATIVE</span></div><div class="matrix-cell incorrect"><strong data-matrix-cell="fp">&mdash;</strong><span>FALSE POSITIVE</span></div>
+  <div class="matrix-label row-positive">Actual<br>Positive</div><div class="matrix-cell incorrect"><strong data-matrix-cell="fn">&mdash;</strong><span>FALSE NEGATIVE</span></div><div class="matrix-cell correct"><strong data-matrix-cell="tp">&mdash;</strong><span>TRUE POSITIVE</span></div>
+</div><details class="matrix-export"><summary>View presentation-ready image <span>+</span></summary><img id="matrix-image" src="/api/confusion-matrix" alt="Confusion matrix loading" loading="lazy"></details><p class="muted" id="matrix-caption"></p></section>
+        <section class="card report-card"><span class="step-label">CLASS-BY-CLASS</span><h2>Classification report</h2><p>Both sides of the prediction.</p><div class="table-wrap"><table><caption class="sr-only">Held-out classification report</caption><thead><tr><th scope="col">Class</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Count</th></tr></thead><tbody id="report-body"></tbody></table></div><div class="interpretation"><h3>How to read these results</h3><p><strong>Precision</strong> asks how often a predicted positive is correct. <strong>Recall</strong> asks how many actual positives are found. <strong>F1</strong> balances both.</p><p>The cards use <strong>positive</strong> as the positive class. This is one fixed test split; performance may differ on other reviews.</p></div><a href="/api/download/classification_report.txt" class="inline-link" download>Download full report <svg><use href="#arrow"/></svg></a></section></div>
+      <div class="limitation"><strong>A useful baseline, with limits.</strong><p>Mixed opinions, sarcasm, very short reviews and unfamiliar language can be misclassified. There is no neutral class. These results describe this sample, not every movie review.</p></div>
+    </section>
+    <section id="method" class="view" hidden>
+      <div class="page-heading"><div><div class="eyebrow">THE PROCESS</div><h1>Behind the model<span class="heading-period">.</span></h1><p>The data, the algorithm, and how they work together.</p></div><a href="/api/download/dataset_audit.json" class="secondary" download><svg><use href="#download"/></svg>Dataset audit</a></div>
+      <div class="method-grid"><section class="card"><span class="step-label">DATASET</span><h2>IMDb Movie Reviews</h2><p id="dataset-file" class="muted"></p><div class="dataset-total"><strong id="dataset-total">—</strong><span>reviews used</span></div><div class="distribution" role="img" id="distribution"><span id="positive-bar"></span><span></span></div><div class="distribution-legend"><span><i></i>Positive <strong id="positive-count">—</strong></span><span><i></i>Negative <strong id="negative-count">—</strong></span></div><dl class="facts" id="dataset-facts"></dl><p class="footnote">Source: supplied IMDb sample. Original sampling details, movie IDs and author IDs were not provided.</p></section>
+        <section class="card"><span class="step-label">MODEL SPECIFICATION</span><h2>A classic approach to language.</h2><dl class="facts"><div><dt>Algorithm</dt><dd>Linear SVM<span>Support Vector Machine · LinearSVC</span></dd></div><div><dt>Feature extraction</dt><dd>TF-IDF<span>Term Frequency-Inverse Document Frequency</span></dd></div><div><dt>Problem type</dt><dd>Binary sentiment classification</dd></div><div><dt>Classes</dt><dd>Positive / Negative</dd></div><div><dt>Features learned</dt><dd id="feature-count">—</dd></div><div><dt>Configuration</dt><dd>Unigrams + bigrams<span>min_df = 2 · sublinear_tf = True · C = 1.0</span></dd></div></dl></section></div>
+      <section class="card methodology"><div class="section-heading"><div><span class="step-label">TRAIN ONCE. LOAD TO PREDICT.</span><h2>From dataset to saved pipeline</h2></div><span class="small-tag">random_state = 42</span></div><div class="method-steps"><article><span>01</span><h3>Validate & split</h3><p>Inspect records, labels and normalized duplicates. Create a stratified 80/20 split before fitting any features.</p></article><article><span>02</span><h3>Preserve the meaning</h3><p>Decode HTML, remove tags and URLs, normalize case and whitespace. Keep negations such as “not” and “never.”</p></article><article><span>03</span><h3>Learn from training text</h3><p>Fit TF-IDF only on training reviews, then train Linear SVM on the sparse feature vectors. No test-set tuning.</p></article><article><span>04</span><h3>Evaluate & save</h3><p>Transform the untouched test data, measure predictions, and save the complete pipeline. The app loads it without retraining.</p></article></div><div class="method-callout"><svg><use href="#check"/></svg><p>One consistent preprocessing pipeline for training and prediction. The test set never teaches the model its vocabulary or IDF weights.</p></div></section>
+    </section>
+<footer><a href="#analyze" class="footer-brand"><svg><use href="#film"/></svg>Sentiment<span>Lab</span></a><p>For every film, a point of view.</p><span>IMDb sentiment analysis <span class="footer-dot">&middot;</span> TF-IDF + Linear SVM</span></footer>
+</main>
+</body>
+</html>

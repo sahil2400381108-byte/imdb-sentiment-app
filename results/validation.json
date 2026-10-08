@@ -1,0 +1,103 @@
+{
+  "status": "Ready within reviewed scope",
+  "all_executed_validations_passed": true,
+  "checked_at_utc": "2026-10-07T17:05:48.423975+00:00",
+  "python_tests": {
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "browser": "Chromium",
+    "passed": true,
+    "javascript_errors": [],
+    "broken_static_assets": [],
+    "viewports": [
+      1440,
+      768,
+      390,
+      360
+    ],
+    "checks": [
+      "dark cinema theme",
+      "hero review CTA focus",
+      "three sample review cards",
+      "positive and negative predictions",
+      "blank/symbol/unknown vocabulary validation",
+      "clear and stale-result reset",
+      "keyboard submission",
+      "network failure and recovery",
+      "experiment retry",
+      "metrics and confusion matrix match saved JSON",
+      "visible imagery renders",
+      "classification report",
+      "all four downloads match saved artifacts",
+      "active navigation and direct links",
+      "unknown route fallback",
+      "mobile navigation, overflow and prediction",
+      "normal animation and reduced-motion support"
+    ]
+  },
+  "source_copy_identical_to_original": true,
+  "dataset_sha256": "8021f2d7f9954929f3d5e24263243e60f8571d7c2cb521460eb7f67630049178",
+  "training_executed": true,
+  "saved_pipeline_reload_predictions_identical": true,
+  "tfidf_training_only_verified": true,
+  "heldout_metrics_independently_recomputed": true,
+  "confusion_matrix_pixels": [
+    1831,
+    1783
+  ],
+  "confusion_matrix_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "dependency_check": "pip check passed; no broken requirements",
+  "visual_inspection": [
+    "desktop analyzer",
+    "desktop evaluation",
+    "desktop methodology",
+    "mobile analyzer",
+    "mobile evaluation",
+    "confusion matrix"
+  ],
+  "custom_reviews": {
+    "total": 6,
+    "matched_intended": 5,
+    "mismatches": [
+      {
+        "review": "Beautiful photography cannot rescue this tedious, empty story.",
+        "intended_sentiment": "negative",
+        "prediction": "positive"
+      }
+    ]
+  },
+  "server": {
+    "url": "http://127.0.0.1:8000",
+    "health": {
+      "status": "ready",
+      "model_loaded": true
+    }
+  },
+  "notes": [
+    "One test-only Starlette deprecation warning for its httpx adapter; all tests passed.",
+    "One fixed sampled holdout; semantic near-duplicates and same-movie/author overlap cannot be verified from supplied columns.",
+    "Browser automation used Chromium; other browsers were not tested."
+  ],
+  "frontend_refresh": {
+    "checked_at_utc": "2026-10-08T01:03:40.281516+00:00",
+    "scope": "Frontend appearance and interactions; model and evaluation artifacts unchanged",
+    "artwork": "static/assets/cinema-neon.png",
+    "font": "static/assets/manrope-variable-latin.woff2",
+    "all_browser_checks_passed": true,
+    "javascript_errors": [],
+    "layout": "Existing hero, editor/result columns, examples, performance and methodology preserved",
+    "motion": "Brief entrance, hover and result feedback with reduced-motion support",
+    "fixes_verified": [
+      "Explicit row and column placement for all four confusion-matrix cells",
+      "Correct variable Manrope font weights",
+      "Film reel logo rendering"
+    ]
+  }
+}

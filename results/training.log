@@ -1,0 +1,24 @@
+2026-10-07 22:29:50,844 | Dataset validation: {'filename': 'IMDB_Sampled_Balanced.csv', 'sha256': '8021f2d7f9954929f3d5e24263243e60f8571d7c2cb521460eb7f67630049178', 'columns': ['review', 'sentiment'], 'shape': [2000, 2], 'original_records': 2000, 'dtypes': {'review': 'object', 'sentiment': 'object'}, 'missing_values': {'review': 0, 'sentiment': 0}, 'duplicate_rows': 0, 'duplicate_review_texts': 0, 'original_class_distribution': {'negative': 1000, 'positive': 1000}, 'review_column': 'review', 'label_column': 'sentiment', 'normalized_duplicates_same_label': 0, 'removed_rows': [], 'removed_count': 0, 'final_records': 2000, 'class_distribution': {'negative': 1000, 'positive': 1000}}
+2026-10-07 22:29:50,845 | First rows (abbreviated): [{'review': "This was the first sequel I'd seen (apart from Return of Jafar) and I honestly thought before watching it that it would be close to the original. I was horribly", 'sentiment': 'negative'}, {'review': 'This movie is probably for you. It had an overall meditative quality from the music, to the beautiful photography, and listening to the often cliché things abou', 'sentiment': 'positive'}, {'review': "...and you can look at that statement in different ways, by the way. First of all, it's a mess because of all the gruesome and extremely violent scenes. Your wi", 'sentiment': 'negative'}, {'review': 'As a Long Island independent film maker myself, and having have had two theatrical releases under my producing/directing belt I had always been told of how much', 'sentiment': 'positive'}, {'review': "This movie starts out very VERY slow, but when the action finally gets started, it's a little had to follow. I couldn't understand why some of the events were t", 'sentiment': 'negative'}]
+2026-10-07 22:29:50,847 | Preprocessing validation complete. Removed 0 rows; negations retained.
+2026-10-07 22:29:51,182 | Split: {'training_records': 1600, 'testing_records': 400, 'training_classes': {'positive': 800, 'negative': 800}, 'testing_classes': {'negative': 200, 'positive': 200}, 'random_state': 42, 'test_size': 0.2, 'stratified': True}
+2026-10-07 22:29:51,197 | Training started: TF-IDF vocabulary and IDF fit ONLY on training records.
+2026-10-07 22:29:53,517 | Training complete: 43784 learned features.
+2026-10-07 22:29:53,961 | Evaluation complete: {'accuracy': 0.8825, 'precision': 0.8558139534883721, 'recall': 0.92, 'f1': 0.8867469879518072}
+2026-10-07 22:29:53,978 | Classification report:
+              precision    recall  f1-score   support
+
+    negative     0.9135    0.8450    0.8779       200
+    positive     0.8558    0.9200    0.8867       200
+
+    accuracy                         0.8825       400
+   macro avg     0.8847    0.8825    0.8823       400
+weighted avg     0.8847    0.8825    0.8823       400
+
+2026-10-07 22:29:55,742 | Reloaded model: positive | This movie was fantastic. The acting and story were excellent.
+2026-10-07 22:29:55,742 | Reloaded model: negative | This movie was extremely boring and I regret watching it.
+2026-10-07 22:29:55,742 | Reloaded model: positive | I expected very little, but the characters won me over. A thoughtful and moving film.
+2026-10-07 22:29:55,742 | Reloaded model: negative | The cast is talented, yet the story is dull and never gives them anything interesting to do.
+2026-10-07 22:29:55,742 | Reloaded model: positive | Not a perfect film, but I enjoyed its warmth and wonderful performances.
+2026-10-07 22:29:55,742 | Reloaded model: positive | Beautiful photography cannot rescue this tedious, empty story.
+2026-10-07 22:29:55,754 | Saved artifacts: D:\ML_MIN_PRO\artifacts\sentiment_pipeline.joblib; results and generated documentation in D:\ML_MIN_PRO\results

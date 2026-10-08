@@ -1,0 +1,32 @@
+[
+  {
+    "review": "This movie was fantastic. The acting and story were excellent.",
+    "intended_sentiment": "positive",
+    "prediction": "positive"
+  },
+  {
+    "review": "This movie was extremely boring and I regret watching it.",
+    "intended_sentiment": "negative",
+    "prediction": "negative"
+  },
+  {
+    "review": "I expected very little, but the characters won me over. A thoughtful and moving film.",
+    "intended_sentiment": "positive",
+    "prediction": "positive"
+  },
+  {
+    "review": "The cast is talented, yet the story is dull and never gives them anything interesting to do.",
+    "intended_sentiment": "negative",
+    "prediction": "negative"
+  },
+  {
+    "review": "Not a perfect film, but I enjoyed its warmth and wonderful performances.",
+    "intended_sentiment": "positive",
+    "prediction": "positive"
+  },
+  {
+    "review": "Beautiful photography cannot rescue this tedious, empty story.",
+    "intended_sentiment": "negative",
+    "prediction": "positive"
+  }
+]

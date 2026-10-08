@@ -1,0 +1,31 @@
+{
+  "browser": "Chromium",
+  "passed": true,
+  "javascript_errors": [],
+  "broken_static_assets": [],
+  "viewports": [
+    1440,
+    768,
+    390,
+    360
+  ],
+  "checks": [
+    "dark cinema theme",
+    "hero review CTA focus",
+    "three sample review cards",
+    "positive and negative predictions",
+    "blank/symbol/unknown vocabulary validation",
+    "clear and stale-result reset",
+    "keyboard submission",
+    "network failure and recovery",
+    "experiment retry",
+    "metrics and confusion matrix match saved JSON",
+    "visible imagery renders",
+    "classification report",
+    "all four downloads match saved artifacts",
+    "active navigation and direct links",
+    "unknown route fallback",
+    "mobile navigation, overflow and prediction",
+    "normal animation and reduced-motion support"
+  ]
+}

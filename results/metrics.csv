@@ -1,0 +1,2 @@
+accuracy,precision,recall,f1,dataset_size,positive_reviews,negative_reviews,training_records,testing_records,algorithm,feature_extraction
+0.8825,0.8558139534883721,0.92,0.8867469879518072,2000,1000,1000,1600,400,Linear SVM (Support Vector Machine),TF-IDF (Term Frequency-Inverse Document Frequency)
